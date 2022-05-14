@@ -1,0 +1,67 @@
+package Helper;
+import java.io.*;
+import java.util.Scanner;
+import java.io.IOException;
+import java.util.Date;
+import java.io.FileReader;
+import java.io.BufferedReader;
+
+
+public class Help {
+    public void CreateFiles(String Tex, Scanner x) {
+        File dir = new File("C:\\TrabalhoProgramacao");
+        File arq = new File(dir, Tex);
+        String[] Nomes;
+        int aux = 0;
+        int choose;
+                try {
+
+                    arq.createNewFile();
+
+                    FileWriter File = new FileWriter(Tex, false);
+
+                    PrintWriter Print = new PrintWriter(arq);
+                    String Edi = x.nextLine();
+                    Print.println(Edi);
+                    Print.flush();
+                    Print.close();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+    public void MENU(){
+
+       System.out.println("<<<<<<EXEMPLO DE COMO DEVE SER CADASTRADA A CHAMADA>>>>>>\n");
+        System.out.println("-----------CHAMADA-----------");
+        System.out.println("1-Matemática");
+        System.out.println("2-Educação Física");
+        System.out.println("3-Português");
+        System.out.println("0-Sair");
+        System.out.println("-----------------------------");
+    }
+    public void Reader(String arqui){
+        File dir=new File("C:\\TrabalhoProgramacao");
+        File arq =new File(dir,arqui);
+
+        try{
+            FileReader Reader =new FileReader(arq);
+
+            BufferedReader bufferedReader=new BufferedReader(Reader);
+
+            String linha="";
+
+            while( ( linha=bufferedReader.readLine())!=null) {
+                System.out.println("\n"+linha);
+            }
+            Reader.close();
+            bufferedReader.close();
+       }catch (IOException e){
+           e.printStackTrace();
+        }
+
+
+    }
+    }
+
